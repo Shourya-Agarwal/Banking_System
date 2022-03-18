@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;900&family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+   
+    <title>Customer Detials</title>
+</head>
+<body bgcolor="#f3f3f3">
+    <!-- Navbar -->
+    <div class="topnav" id="myTopnav">
+        <a href ="/" >Home</a>
+        <a href="/customers" class="active">Customers Detials</a>
+        <a href="/this">Transaction History</a>
+        </div>
+    <h2>Here is the list of the customers available with us.</h2>
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th>S no.</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>phone number</th>
+                <th >credit balance</th>
+                <th>  </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in messages  %}
+            <tr>
+                <td> {{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.phone}}</td>
+                <td ><em><b>{{i.credits}}</b></em></td>
+                <td><a href="{% url 'transaction' %}?data={{i.name}}?{{i.credits}}">Transfer</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        
+    </table>
+
+    <!--Footer-->
+
+    <div class="footer">
+        <p class="remove">
+        © Copyright 2022 Foundation bank
+        </p>
+        </div>
+</body>
+</html>

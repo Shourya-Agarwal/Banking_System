@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;900&family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+   
+    <title>History of the transactions</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="topnav" id="myTopnav">
+        <a href ="/" >Home</a>
+        <a href="/customers" >Customers Detials</a>
+        <a href="/this" class="active">Transaction History</a>
+        </div>
+    <h2>Here is the list of the customers available with us.</h2>
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th>S no.</th>
+                <th>From</th>
+                <th>To</th>
+                <th >Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in messages  %}
+            <tr>
+                <td> {{i.id}}</td>
+                <td> {{i.from1}}</td>
+                <td>{{i.to1}}</td>
+                <td ><em><b>{{i.amount}}</b></em></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        
+    </table>
+
+    <!--Footer-->
+
+    <div class="footer">
+        <p class="remove">
+        © Copyright 2022 Foundation Bank
+        </p>
+        </div>
+</body>
+</html>
